@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Te amo mucho, mi amor</title>
 
-  <!-- Importación de fuente desde Google Fonts -->
+  <!-- Fuente personalizada -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  
+
   <style>
-    /* Estilo global */
+    /* Fondo suave con degradado */
     body {
       margin: 0;
       height: 100vh;
@@ -30,7 +30,7 @@
       animation: fadeIn 2s ease forwards;
     }
 
-    /* Animación de entrada suave */
+    /* Animación de entrada */
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -42,7 +42,6 @@
       }
     }
 
-    /* Títulos animados */
     h1 {
       font-size: 2.8em;
       font-weight: 600;
@@ -81,40 +80,88 @@
       transform: scale(1.1) rotate(-3deg);
     }
 
-    /* Tulipanes delineados en movimiento */
+    /* Tulipán con movimiento ondulante */
     .tulip {
       position: absolute;
-      width: 40px;
-      height: 80px;
+      bottom: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 180px;
       background: url('https://i.imgur.com/z80Qyb6.png') no-repeat center/contain;
-      opacity: 0.5;
-      animation: floatTulips 8s infinite ease-in-out;
+      animation: sway 3s ease-in-out infinite;
     }
 
-    /* Animación suave de tulipanes */
-    @keyframes floatTulips {
+    /* Movimiento suave de ondulación */
+    @keyframes sway {
+      0%, 100% {
+        transform: translateX(-50%) rotate(0deg);
+      }
+      50% {
+        transform: translateX(-50%) rotate(5deg);
+      }
+    }
+
+    /* Partículas flotantes */
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      width: 6px;
+      height: 6px;
+      animation: floatParticle 5s infinite;
+    }
+
+    /* Animación de partículas */
+    @keyframes floatParticle {
       0% {
-        transform: translateY(100vh) rotate(0deg);
+        transform: translateY(0) scale(0.8);
         opacity: 1;
       }
       100% {
-        transform: translateY(-20vh) rotate(360deg);
+        transform: translateY(-150px) scale(1.2);
         opacity: 0;
       }
     }
 
-    /* Distribución aleatoria */
-    .tulip:nth-child(1) { left: 10%; animation-duration: 6s; }
-    .tulip:nth-child(2) { left: 25%; animation-duration: 7.5s; }
-    .tulip:nth-child(3) { left: 50%; animation-duration: 9s; }
-    .tulip:nth-child(4) { left: 75%; animation-duration: 5.5s; }
-    .tulip:nth-child(5) { left: 90%; animation-duration: 7s; }
+    /* Marca de agua */
+    .watermark {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
+      font-family: 'Poppins', sans-serif;
+      z-index: 999;
+    }
   </style>
 
   <script>
+    // Cambiar el mensaje del texto
     function changeMessage() {
       document.querySelector("h1").innerText = "¿Quieres ser mi San Valentín?";
       document.querySelector(".button").style.display = "none";
+    }
+
+    // Crear partículas dinámicamente
+    window.onload = function () {
+      for (let i = 0; i < 50; i++) {
+        createParticle();
+      }
+    };
+
+    function createParticle() {
+      const particle = document.createElement("div");
+      particle.className = "particle";
+      particle.style.left = `${Math.random() * 100}vw`;
+      particle.style.bottom = `${Math.random() * 20 + 60}px`;
+      particle.style.animationDuration = `${Math.random() * 3 + 2}s`;
+      document.body.appendChild(particle);
+
+      // Eliminar partículas una vez terminada la animación
+      particle.addEventListener("animationend", () => {
+        particle.remove();
+      });
     }
   </script>
 </head>
@@ -125,11 +172,11 @@
     <button class="button" onclick="changeMessage()">Click aquí</button>
   </div>
 
-  <!-- Tulipanes animados flotando -->
+  <!-- Tulipán en movimiento -->
   <div class="tulip"></div>
-  <div class="tulip"></div>
-  <div class="tulip"></div>
-  <div class="tulip"></div>
-  <div class="tulip"></div>
+
+  <!-- Marca de agua -->
+  <div class="watermark">14/07 Helencita y Juanito</div>
 </body>
 </html>
+
