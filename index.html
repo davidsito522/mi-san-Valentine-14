@@ -6,56 +6,45 @@
   <title>Te amo mucho, mi amor</title>
 
   <!-- Fuente personalizada -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-    /* Fondo suave */
+    /* Fondo general con degradado */
     body {
       margin: 0;
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #fbc2eb, #a18cd1);
+      background: linear-gradient(145deg, #fbc2eb, #a6c1ee);
       font-family: 'Poppins', sans-serif;
       color: white;
       overflow: hidden;
-      text-align: center;
+      position: relative;
     }
 
     /* Contenedor principal */
     .container {
       position: relative;
       z-index: 2;
-      animation: fadeIn 2s ease forwards;
+      text-align: center;
     }
 
-    /* Animación de entrada */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
+    /* Encabezado animado */
     h1 {
-      font-size: 3.2em;
+      font-size: 3.5em;
+      font-family: 'Parisienne', cursive;
       font-weight: 600;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
       animation: textGlow 3s infinite alternate;
     }
 
-    /* Efecto de resplandor suave */
     @keyframes textGlow {
       from {
         text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.3);
       }
       to {
-        text-shadow: 4px 4px 12px rgba(255, 255, 255, 0.7);
+        text-shadow: 4px 4px 15px rgba(255, 255, 255, 0.7);
       }
     }
 
@@ -80,45 +69,24 @@
       transform: scale(1.1) rotate(-3deg);
     }
 
-    /* Tulipán SVG grande con animación */
+    /* Tulipán SVG grande */
     .tulip {
       position: absolute;
-      bottom: 5%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 180px;
-      animation: sway 3s ease-in-out infinite;
+      bottom: -10%;
+      left: 10%;
+      width: 80vw;
+      max-height: 90vh;
+      opacity: 0.8;
+      animation: sway 6s ease-in-out infinite;
     }
 
-    /* Movimiento suave de ondulación */
+    /* Movimiento suave del tulipán */
     @keyframes sway {
       0%, 100% {
-        transform: translateX(-50%) rotate(0deg);
+        transform: translateX(0) rotate(0deg);
       }
       50% {
-        transform: translateX(-50%) rotate(3deg);
-      }
-    }
-
-    /* Partículas flotantes */
-    .particle {
-      position: absolute;
-      background: rgba(255, 255, 255, 0.8);
-      border-radius: 50%;
-      width: 6px;
-      height: 6px;
-      animation: floatParticle 5s infinite;
-    }
-
-    /* Animación de partículas */
-    @keyframes floatParticle {
-      0% {
-        transform: translateY(0) scale(0.8);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-150px) scale(1.2);
-        opacity: 0;
+        transform: translateX(10px) rotate(2deg);
       }
     }
 
@@ -128,7 +96,7 @@
       bottom: 10px;
       right: 10px;
       font-size: 14px;
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.7);
       font-family: 'Poppins', sans-serif;
       z-index: 999;
     }
@@ -140,27 +108,6 @@
       document.querySelector("h1").innerText = "¿Quieres ser mi San Valentín?";
       document.querySelector(".button").style.display = "none";
     }
-
-    // Crear partículas dinámicamente
-    window.onload = function () {
-      for (let i = 0; i < 50; i++) {
-        createParticle();
-      }
-    };
-
-    function createParticle() {
-      const particle = document.createElement("div");
-      particle.className = "particle";
-      particle.style.left = `${Math.random() * 100}vw`;
-      particle.style.bottom = `${Math.random() * 20 + 60}px`;
-      particle.style.animationDuration = `${Math.random() * 3 + 2}s`;
-      document.body.appendChild(particle);
-
-      // Eliminar partículas una vez terminada la animación
-      particle.addEventListener("animationend", () => {
-        particle.remove();
-      });
-    }
   </script>
 </head>
 
@@ -170,19 +117,19 @@
     <button class="button" onclick="changeMessage()">Click aquí</button>
   </div>
 
-  <!-- Tulipán detallado -->
-  <svg class="tulip" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 180">
-    <!-- Hojas verdes -->
-    <path d="M50 140 Q70 110 90 180 T50 180 Z" fill="#4CAF50"/>
-    <path d="M50 140 Q30 110 10 180 T50 180 Z" fill="#4CAF50"/>
-
+  <!-- Tulipán SVG detallado -->
+  <svg class="tulip" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 128">
     <!-- Tallo -->
-    <rect x="48" y="90" width="4" height="90" fill="#388E3C"/>
+    <rect x="31" y="40" width="2" height="88" fill="#388E3C"/>
 
-    <!-- Pétalos rosados -->
-    <path d="M50 90 C30 70 10 100 30 120 C50 100 50 90 50 90 Z" fill="#FF5B77"/>
-    <path d="M50 90 C70 70 90 100 70 120 C50 100 50 90 50 90 Z" fill="#FF5B77"/>
-    <path d="M50 90 C40 60 60 60 50 90 Z" fill="#FFB4C1"/>
+    <!-- Hojas -->
+    <path d="M30 70 C10 100 20 120 34 110 C22 100 45 80 30 70" fill="#4CAF50"/>
+    <path d="M32 70 C50 100 55 120 30 110 C42 95 15 85 32 70" fill="#66BB6A"/>
+
+    <!-- Pétalos -->
+    <path d="M32 50 C20 20 5 40 20 70 Q32 50 32 50 Z" fill="#F48FB1"/>
+    <path d="M32 50 C44 20 59 40 44 70 Q32 50 32 50 Z" fill="#F06292"/>
+    <path d="M32 50 C22 0 42 0 32 50 Z" fill="#E91E63"/>
   </svg>
 
   <!-- Marca de agua -->
