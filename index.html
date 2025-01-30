@@ -6,21 +6,20 @@
   <title>Te amo mucho, mi amor</title>
 
   <!-- Fuente personalizada -->
-  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-    /* Fondo general con degradado */
+    /* Fondo suave */
     body {
       margin: 0;
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(145deg, #fbc2eb, #a6c1ee);
+      background: linear-gradient(135deg, #fbc2eb, #a18cd1);
       font-family: 'Poppins', sans-serif;
       color: white;
       overflow: hidden;
-      position: relative;
     }
 
     /* Contenedor principal */
@@ -28,23 +27,35 @@
       position: relative;
       z-index: 2;
       text-align: center;
+      animation: fadeIn 2s ease forwards;
     }
 
-    /* Encabezado animado */
+    /* Animación de entrada */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     h1 {
       font-size: 3.5em;
-      font-family: 'Parisienne', cursive;
       font-weight: 600;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
       animation: textGlow 3s infinite alternate;
     }
 
+    /* Efecto de resplandor suave */
     @keyframes textGlow {
       from {
         text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.3);
       }
       to {
-        text-shadow: 4px 4px 15px rgba(255, 255, 255, 0.7);
+        text-shadow: 4px 4px 12px rgba(255, 255, 255, 0.7);
       }
     }
 
@@ -54,7 +65,7 @@
       border: none;
       padding: 15px 30px;
       color: white;
-      font-size: 1em;
+      font-size: 1.2em;
       font-family: 'Poppins', sans-serif;
       font-weight: 600;
       cursor: pointer;
@@ -69,25 +80,57 @@
       transform: scale(1.1) rotate(-3deg);
     }
 
-    /* Tulipán SVG grande */
+    /* Tulipanes grandes de fondo */
     .tulip {
       position: absolute;
-      bottom: -10%;
-      left: 10%;
-      width: 80vw;
-      max-height: 90vh;
-      opacity: 0.8;
-      animation: sway 6s ease-in-out infinite;
+      bottom: -100px;
+      width: 200px;
+      animation: sway 5s infinite ease-in-out;
+      z-index: 1;
+      opacity: 0.4;
     }
 
-    /* Movimiento suave del tulipán */
+    /* Movimiento de los tulipanes */
     @keyframes sway {
       0%, 100% {
-        transform: translateX(0) rotate(0deg);
+        transform: translateX(-50%) rotate(0deg);
       }
       50% {
-        transform: translateX(10px) rotate(2deg);
+        transform: translateX(-50%) rotate(5deg);
       }
+    }
+
+    /* Repetir varios tulipanes en diferentes posiciones */
+    .tulip:nth-child(2) {
+      left: 30%;
+      animation: sway 4s infinite ease-in-out;
+      animation-delay: 1s;
+      opacity: 0.5;
+      fill: #ff6f61; /* Tulipán color rojo */
+    }
+
+    .tulip:nth-child(3) {
+      left: 70%;
+      animation: sway 6s infinite ease-in-out;
+      animation-delay: 2s;
+      opacity: 0.4;
+      fill: #f2a2d2; /* Tulipán color rosa claro */
+    }
+
+    .tulip:nth-child(4) {
+      left: 20%;
+      animation: sway 5s infinite ease-in-out;
+      animation-delay: 3s;
+      opacity: 0.5;
+      fill: #ffdb58; /* Tulipán color amarillo */
+    }
+
+    .tulip:nth-child(5) {
+      left: 80%;
+      animation: sway 5s infinite ease-in-out;
+      animation-delay: 2.5s;
+      opacity: 0.3;
+      fill: #e14e8d; /* Tulipán color rosa oscuro */
     }
 
     /* Marca de agua */
@@ -96,7 +139,7 @@
       bottom: 10px;
       right: 10px;
       font-size: 14px;
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 0.6);
       font-family: 'Poppins', sans-serif;
       z-index: 999;
     }
@@ -117,22 +160,33 @@
     <button class="button" onclick="changeMessage()">Click aquí</button>
   </div>
 
-  <!-- Tulipán SVG detallado -->
-  <svg class="tulip" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 128">
-    <!-- Tallo -->
-    <rect x="31" y="40" width="2" height="88" fill="#388E3C"/>
+  <!-- Tulipanes de fondo de diferentes colores -->
+  <svg class="tulip" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="30" cy="30" r="15" fill="#ff6f61" />
+    <ellipse cx="20" cy="30" rx="10" ry="20" fill="#ff6f61" />
+    <ellipse cx="40" cy="30" rx="10" ry="20" fill="#ff6f61" />
+  </svg>
 
-    <!-- Hojas -->
-    <path d="M30 70 C10 100 20 120 34 110 C22 100 45 80 30 70" fill="#4CAF50"/>
-    <path d="M32 70 C50 100 55 120 30 110 C42 95 15 85 32 70" fill="#66BB6A"/>
+  <svg class="tulip" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="30" cy="30" r="15" fill="#f2a2d2" />
+    <ellipse cx="20" cy="30" rx="10" ry="20" fill="#f2a2d2" />
+    <ellipse cx="40" cy="30" rx="10" ry="20" fill="#f2a2d2" />
+  </svg>
 
-    <!-- Pétalos -->
-    <path d="M32 50 C20 20 5 40 20 70 Q32 50 32 50 Z" fill="#F48FB1"/>
-    <path d="M32 50 C44 20 59 40 44 70 Q32 50 32 50 Z" fill="#F06292"/>
-    <path d="M32 50 C22 0 42 0 32 50 Z" fill="#E91E63"/>
+  <svg class="tulip" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="30" cy="30" r="15" fill="#ffdb58" />
+    <ellipse cx="20" cy="30" rx="10" ry="20" fill="#ffdb58" />
+    <ellipse cx="40" cy="30" rx="10" ry="20" fill="#ffdb58" />
+  </svg>
+
+  <svg class="tulip" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="30" cy="30" r="15" fill="#e14e8d" />
+    <ellipse cx="20" cy="30" rx="10" ry="20" fill="#e14e8d" />
+    <ellipse cx="40" cy="30" rx="10" ry="20" fill="#e14e8d" />
   </svg>
 
   <!-- Marca de agua -->
   <div class="watermark">14/07 Helencita y Juanito</div>
 </body>
 </html>
+
