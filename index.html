@@ -80,15 +80,13 @@
       transform: scale(1.1) rotate(-3deg);
     }
 
-    /* Tulipán con movimiento ondulante */
+    /* Tulipán SVG en movimiento ondulante */
     .tulip {
       position: absolute;
       bottom: 5%;
       left: 50%;
       transform: translateX(-50%);
-      width: 100px;
-      height: 180px;
-      background: url('https://i.imgur.com/z80Qyb6.png') no-repeat center/contain;
+      width: 120px;
       animation: sway 3s ease-in-out infinite;
     }
 
@@ -172,11 +170,14 @@
     <button class="button" onclick="changeMessage()">Click aquí</button>
   </div>
 
-  <!-- Tulipán en movimiento -->
-  <div class="tulip"></div>
+  <!-- Tulipán SVG -->
+  <svg class="tulip" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 128">
+    <path d="M32 128 C22 98 22 78 32 48 C42 78 42 98 32 128 Z" fill="#FF5B77"/>
+    <path d="M24 48 C16 24 32 8 32 8 C32 8 48 24 40 48 Z" fill="#FFB4C1"/>
+    <path d="M30 80 L34 80 L32 128 Z" fill="#4CAF50"/>
+  </svg>
 
   <!-- Marca de agua -->
   <div class="watermark">14/07 Helencita y Juanito</div>
 </body>
 </html>
-
